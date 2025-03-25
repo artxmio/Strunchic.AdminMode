@@ -10,7 +10,7 @@
         WindowStartupLocation="CenterScreen"
         
         d:DataContext="{d:DesignInstance vm:AddUserViewModel}">
-    <Grid Margin="0,0,0,-1">
+    <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="70"/>
@@ -76,7 +76,7 @@
              Height="25"/>
 
         <Button Command="{Binding AddUserCommand}" 
-                Content="OK" Grid.Row="3" Margin="20,79,260,-49"/>
+                Content="OK" Grid.Row="3" Margin="20,84,260,-49"/>
         <Button Content="Cancel" Grid.Row="3" Margin="260,84,20,-49"
                 Click="Button_Click"/>
     </Grid>

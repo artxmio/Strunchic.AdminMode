@@ -43,5 +43,6 @@ public class UsersManager : BaseManager.BaseManager
         }
 
         _context.Remove(SelectedUser);
+        _context.SaveChanges();
     }
 }

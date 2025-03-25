@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\C#\Strunchic.AdminMode\App.xaml
-2-397782687
+3-2129181230
 31111363862
-11723509039
+14-82259242
 243-1805494370
-View\AddUserWindow.xaml;View\MainWindow.xaml;
+View\AddItemWindow.xaml;View\AddUserWindow.xaml;View\MainWindow.xaml;
 
 True
 

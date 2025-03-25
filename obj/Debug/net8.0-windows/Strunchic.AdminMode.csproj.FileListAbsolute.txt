@@ -124,3 +124,5 @@ D:\C#\Strunchic.AdminMode\obj\Debug\net8.0-windows\Strunchic.AdminMode.sourcelin
 D:\C#\Strunchic.AdminMode\obj\Debug\net8.0-windows\Strunchic.AdminMode_MarkupCompile.lref
 D:\C#\Strunchic.AdminMode\obj\Debug\net8.0-windows\View\AddUserWindow.g.cs
 D:\C#\Strunchic.AdminMode\obj\Debug\net8.0-windows\View\AddUserWindow.baml
+D:\C#\Strunchic.AdminMode\obj\Debug\net8.0-windows\View\AddItemWindow.g.cs
+D:\C#\Strunchic.AdminMode\obj\Debug\net8.0-windows\View\AddItemWindow.baml

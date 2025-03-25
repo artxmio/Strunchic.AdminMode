@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Strunchic.AdminMode")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f7c2a95e2c093776205cd4e0e99de62d839be1b5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5a68a18c04cc00a4921347750476bc9446b94dbe")]
 [assembly: System.Reflection.AssemblyProductAttribute("Strunchic.AdminMode")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Strunchic.AdminMode")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
