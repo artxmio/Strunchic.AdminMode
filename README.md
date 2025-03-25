@@ -1,0 +1,1 @@
+# Strunchic.AdminMode
