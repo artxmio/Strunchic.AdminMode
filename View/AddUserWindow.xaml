@@ -1,0 +1,83 @@
+﻿<Window x:Class="Strunchic.AdminMode.View.AddUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Strunchic.AdminMode.ViewModel"
+        
+        mc:Ignorable="d"
+        Title="AddUserWindow" Height="380" Width="500"
+        WindowStartupLocation="CenterScreen"
+        
+        d:DataContext="{d:DesignInstance vm:AddUserViewModel}">
+    <Grid Margin="0,0,0,-1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock 
+             Text="Новый пользователь"
+             FontWeight="SemiBold"
+             FontFamily="Outfit"
+             FontSize="30"
+             VerticalAlignment="Center"
+             HorizontalAlignment="Center"/>
+
+        <TextBlock 
+             FontWeight="SemiBold"
+             Text="Имя:" 
+             FontFamily="Outfit"
+             FontSize="15"
+             Margin="20,8,125,43" Grid.Row="1"/>
+
+        <TextBox
+             Text="{Binding NewUser.Name}"
+             VerticalAlignment="Center"
+             FontSize="15"
+             MaxLength="25"
+             Grid.Row="1" 
+             Margin="20,30,20,10"
+            Height="25"/>
+
+        <TextBlock 
+             FontWeight="SemiBold"
+             Text="Почта:" 
+             FontFamily="Outfit"
+             FontSize="15"
+             Margin="20,8,125,43"
+             Grid.Row="2"/>
+
+        <TextBox
+             Text="{Binding NewUser.Email}"
+             FontSize="15"
+             MaxLength="25"
+             Margin="20,30,20,10"
+             Grid.Row="2"
+            Height="25"/>
+
+        <TextBlock 
+             Text="Пароль:" 
+             FontFamily="Outfit"
+             FontWeight="SemiBold"
+             FontSize="15"
+             Margin="20,8,125,43"
+             Grid.Row="3"/>
+
+        <TextBox
+             Text="{Binding NewUser.Password}"
+             VerticalAlignment="Center"
+             FontSize="15"
+             MaxLength="25"
+             Grid.Row="3"              
+             Margin="20,30,20,10"
+             Height="25"/>
+
+        <Button Command="{Binding AddUserCommand}" 
+                Content="OK" Grid.Row="3" Margin="20,79,260,-49"/>
+        <Button Content="Cancel" Grid.Row="3" Margin="260,84,20,-49"
+                Click="Button_Click"/>
+    </Grid>
+</Window>

@@ -3,8 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Strunchic.AdminMode.ViewModel"
         mc:Ignorable="d"
-        Title="Strunchic Admin Mode" Height="450" Width="800">
+        Title="Strunchic Admin Mode" 
+        
+        WindowState="Maximized"
+        
+        MinHeight="450"
+        MinWidth="800"
+        
+        d:Width="800"
+        d:Height="450"
+        
+        d:DataContext="{d:DesignInstance vm:MainWindowViewModel}">
 
     <Grid>
 
@@ -27,8 +38,8 @@
                     <DataGrid 
                         Grid.RowSpan="2"
                         Grid.ColumnSpan="2"  
-                        SelectedItem="{Binding ProjectService.Selected}"
-                        ItemsSource="{Binding ProjectService.Data, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding SelectedUser}"
+                        ItemsSource="{Binding Users, UpdateSourceTrigger=PropertyChanged}"
                         Margin="10"
                         AutoGenerateColumns="False"
     
@@ -39,32 +50,32 @@
                         HorizontalContentAlignment="Center">
 
                         <DataGrid.Columns>
-                            <DataGridTemplateColumn Header="Title" Width="0.2*">
+                            <DataGridTextColumn Binding="{Binding UserId}" Header="ID" Width="30"/>
+                            <DataGridTemplateColumn Header="Имя" Width="0.2*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding Title}" />
+                                        <TextBlock Text="{Binding Name}" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellEditingTemplate>
                                     <DataTemplate>
-                                        <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" MaxLength="25" />
+                                        <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" MaxLength="25" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellEditingTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="Description" Width="0.5*">
+                            <DataGridTemplateColumn Header="Почта" Width="0.5*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding Description}" />
+                                        <TextBlock Text="{Binding Email}" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellEditingTemplate>
                                     <DataTemplate>
-                                        <TextBox Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" MaxLength="200" />
+                                        <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" MaxLength="200" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellEditingTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTextColumn Binding="{Binding CountParticipants}" Header="Count Participants" Width="0.2*"/>
-                            <DataGridCheckBoxColumn Binding="{Binding IsComplete}" Header="Complete" Width="0.1*"/>
+                            <DataGridTextColumn Binding="{Binding Password}" Header="Пароль" Width="0.2*"/>
                         </DataGrid.Columns>
 
                     </DataGrid>
@@ -80,12 +91,33 @@
                         <Grid>
 
                             <StackPanel>
+                                <Button VerticalAlignment="Bottom" 
+                                        Content="Добавить пользователя"
+                                        Grid.Row="3"
+                                        Margin="0 0 0 10"
+                                        Height="30"
+                                        Command="{Binding AddUserCommand}"/>
+                                
+                                <Button VerticalAlignment="Bottom" 
+                                        Content="Удалить пользователя"
+                                        Grid.Row="3"
+                                        Height="30"
+                                        Margin="0 0 0 10"
+                                        Command="{Binding DeleteUserCommand}"/>
 
-
+                                <Button VerticalAlignment="Bottom" 
+                                        Content="Сохранить изменения"
+                                        Grid.Row="3"
+                                        Height="30"
+                                        Command="{Binding DeleteUserCommand}"/>
                             </StackPanel>
 
-                            <Button VerticalAlignment="Bottom" Command="{Binding CloseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Grid.Row="3" Content="Exit"/>
-
+                            <Button x:Name="ExitButton"
+                                    VerticalAlignment="Bottom" 
+                                    Grid.Row="3" 
+                                    Content="Exit"
+                                    Height="30"
+                                    Click="ExitButton_Click"/>
                         </Grid>
 
                     </GroupBox>
@@ -341,6 +373,6 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        
+
     </Grid>
 </Window>

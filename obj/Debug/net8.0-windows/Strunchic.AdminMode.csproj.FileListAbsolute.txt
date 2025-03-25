@@ -120,3 +120,7 @@ D:\C#\Strunchic.AdminMode\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.Core.x
 D:\C#\Strunchic.AdminMode\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.WinForms.xml
 D:\C#\Strunchic.AdminMode\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.Wpf.xml
 D:\C#\Strunchic.AdminMode\obj\Debug\net8.0-windows\Strunchi.39B414C4.Up2Date
+D:\C#\Strunchic.AdminMode\obj\Debug\net8.0-windows\Strunchic.AdminMode.sourcelink.json
+D:\C#\Strunchic.AdminMode\obj\Debug\net8.0-windows\Strunchic.AdminMode_MarkupCompile.lref
+D:\C#\Strunchic.AdminMode\obj\Debug\net8.0-windows\View\AddUserWindow.g.cs
+D:\C#\Strunchic.AdminMode\obj\Debug\net8.0-windows\View\AddUserWindow.baml
