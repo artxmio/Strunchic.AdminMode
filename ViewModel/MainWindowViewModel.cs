@@ -1,6 +1,9 @@
-﻿using Strunchic.AdminMode.Services.ItemsManager;
+﻿using Strunchic.AdminMode.Services.InsrtumentTypesManager;
+using Strunchic.AdminMode.Services.ItemsManager;
+using Strunchic.AdminMode.Services.OrderManager;
 using Strunchic.AdminMode.Services.UsersManager;
 using Strunchik.Model.Item;
+using Strunchik.Model.Order;
 using Strunchik.Model.User;
 using Strunchik.ViewModel.ApplicationContext;
 using Strunchik.ViewModel.Commands;
@@ -15,6 +18,8 @@ public class MainWindowViewModel : INotifyPropertyChanged
 {
     private readonly UsersManager _userManager = null!;
     private readonly ItemsManager _itemManager = null!;
+    private readonly InsrtumentTypesManager _typesManager = null!;
+    private readonly OrderManager _orderManager = null!;
     private readonly ApplicationContext _context = null!;
 
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -57,11 +62,55 @@ public class MainWindowViewModel : INotifyPropertyChanged
         }
     }
 
+    public ItemsType SelectedType
+    {
+        get => _typesManager.SelectedType;
+        set
+        {
+            _typesManager.SelectedType = value;
+            OnPropertyChanched();
+        }
+    }
+    public ObservableCollection<ItemsType> Types
+    {
+        get => _typesManager.Data;
+        set
+        {
+            _typesManager.Data = value;
+            OnPropertyChanched();
+        }
+    }
+
+    public OrderModel SelectedOrder
+    {
+        get => _orderManager.SelectedOrder;
+        set
+        {
+            _orderManager.SelectedOrder = value;
+            OnPropertyChanched();
+        }
+    }
+    public ObservableCollection<OrderModel> Orders
+    {
+        get => _orderManager.Data;
+        set
+        {
+            _orderManager.Data = value;
+            OnPropertyChanched();
+        }
+    }
+
     public ICommand AddUserCommand { get; }
     public ICommand DeleteUserCommand { get; }
 
     public ICommand AddItemCommand { get; }
     public ICommand DeleteItemCommand { get; }
+
+    public ICommand AddTypeCommand { get; }
+    public ICommand DeleteTypeCommand { get; }
+
+    public ICommand AddOrderCommand { get; }
+    public ICommand DeleteOrderCommand { get; }
 
     public MainWindowViewModel()
     {
@@ -69,12 +118,20 @@ public class MainWindowViewModel : INotifyPropertyChanged
 
         _userManager = new UsersManager(_context);
         _itemManager = new ItemsManager(_context);
+        _typesManager = new InsrtumentTypesManager(_context);
+        _orderManager = new OrderManager(_context);
 
         AddUserCommand = new RelayCommand(_ => { _userManager.Add(); OnPropertyChanched(nameof(Users)); });
         DeleteUserCommand = new RelayCommand(_ => _userManager.Delete());
 
         AddItemCommand = new RelayCommand(_ => { _itemManager.Add(); OnPropertyChanched(nameof(Items)); });
         DeleteItemCommand = new RelayCommand(_ => _itemManager.Delete());
+
+        AddTypeCommand = new RelayCommand(_ => { _typesManager.Add(); OnPropertyChanched(nameof(Types)); });
+        DeleteTypeCommand = new RelayCommand(_ => _typesManager.Delete());
+
+        AddOrderCommand = new RelayCommand(_ => { _orderManager.Add(); OnPropertyChanched(nameof(Orders)); });
+        DeleteOrderCommand = new RelayCommand(_ => _orderManager.Delete());
     }
 
     private void OnPropertyChanched([CallerMemberName] string property = "")

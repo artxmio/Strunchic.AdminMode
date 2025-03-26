@@ -9,7 +9,7 @@ namespace Strunchic.AdminMode.ViewModel;
 
 public class AddUserViewModel
 {
-    private ApplicationContext _context;
+    private readonly ApplicationContext _context;
 
     public UserModel NewUser { get; set; }
 
