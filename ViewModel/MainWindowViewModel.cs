@@ -112,6 +112,8 @@ public class MainWindowViewModel : INotifyPropertyChanged
     public ICommand AddOrderCommand { get; }
     public ICommand DeleteOrderCommand { get; }
 
+    public ICommand SaveCommand { get; }
+
     public MainWindowViewModel()
     {
         _context = new ApplicationContext();
@@ -132,6 +134,8 @@ public class MainWindowViewModel : INotifyPropertyChanged
 
         AddOrderCommand = new RelayCommand(_ => { _orderManager.Add(); OnPropertyChanched(nameof(Orders)); });
         DeleteOrderCommand = new RelayCommand(_ => _orderManager.Delete());
+
+        SaveCommand = new RelayCommand(_ => _context.SaveChanges());
     }
 
     private void OnPropertyChanched([CallerMemberName] string property = "")

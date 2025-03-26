@@ -51,31 +51,9 @@
 
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding UserId}" Header="ID" Width="30"/>
-                            <DataGridTemplateColumn Header="Имя" Width="0.2*">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding Name}" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.CellEditingTemplate>
-                                    <DataTemplate>
-                                        <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" MaxLength="25" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellEditingTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="Почта" Width="0.5*">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding Email}" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.CellEditingTemplate>
-                                    <DataTemplate>
-                                        <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" MaxLength="200" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellEditingTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTextColumn Binding="{Binding Password}" Header="Пароль" Width="0.2*"/>
+                            <DataGridTextColumn Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Header="Имя" Width="0.2*"/>
+                            <DataGridTextColumn Binding="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Header="Почта" Width="0.3*"/>
+                            <DataGridTextColumn Binding="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Header="Пароль" Width="0.2*"/>
                         </DataGrid.Columns>
 
                     </DataGrid>
@@ -104,6 +82,12 @@
                                         Height="30"
                                         Margin="0 0 0 10"
                                         Command="{Binding DeleteUserCommand}"/>
+                                <Button VerticalAlignment="Bottom" 
+                                        Content="Сохранить"
+                                        Grid.Row="3"
+                                        Height="30"
+                                        Margin="0 0 0 10"
+                                        Command="{Binding SaveCommand}"/>
 
                             </StackPanel>
 
@@ -151,31 +135,13 @@
                             <DataGridTextColumn Binding="{Binding ItemId}" 
                                                 Header="ID" 
                                                 Width="30"/>
-                            <DataGridTemplateColumn Header="Наименование" Width="0.2*">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding Title}" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.CellEditingTemplate>
-                                    <DataTemplate>
-                                        <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" MaxLength="25" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellEditingTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="Описание" Width="0.5*">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding Description}" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                                <DataGridTemplateColumn.CellEditingTemplate>
-                                    <DataTemplate>
-                                        <TextBox Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" MaxLength="200" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellEditingTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTextColumn Binding="{Binding Price}" Header="Цена" Width="0.2*"/>
+                            <DataGridTextColumn Binding="{Binding Title, UpdateSourceTrigger=PropertyChanged}"
+                                                Header="Наименование"
+                                                Width="0.2*"/>
+                            <DataGridTextColumn Binding="{Binding Description, UpdateSourceTrigger=PropertyChanged}"
+                                                Header="Описание"
+                                                Width="0.4*"/>
+                            <DataGridTextColumn Binding="{Binding Price, UpdateSourceTrigger=PropertyChanged}" Header="Цена" Width="0.2*"/>
                         </DataGrid.Columns>
 
                     </DataGrid>
@@ -204,6 +170,12 @@
                                         Height="30"
                                         Margin="0 0 0 10"
                                         Command="{Binding DeleteItemCommand}"/>
+                                <Button VerticalAlignment="Bottom" 
+                                        Content="Сохранить"
+                                        Grid.Row="3"
+                                        Height="30"
+                                        Margin="0 0 0 10"
+                                        Command="{Binding SaveCommand}"/>
                             </StackPanel>
 
                             <Button VerticalAlignment="Bottom" Click="ExitButton_Click" Grid.Row="3" Content="Exit"/>
@@ -284,6 +256,12 @@
                                     Height="30"
                                     Margin="0 0 0 10"
                                     Command="{Binding DeleteTypeCommand}"/>
+                                <Button VerticalAlignment="Bottom" 
+                                        Content="Сохранить"
+                                        Grid.Row="3"
+                                        Height="30"
+                                        Margin="0 0 0 10"
+                                        Command="{Binding SaveCommand}"/>
 
                             </StackPanel>
 
@@ -358,6 +336,12 @@
                                     Height="30"
                                     Margin="0 0 0 10"
                                     Command="{Binding DeleteTypeCommand}"/>
+                                <Button VerticalAlignment="Bottom" 
+                                        Content="Сохранить"
+                                        Grid.Row="3"
+                                        Height="30"
+                                        Margin="0 0 0 10"
+                                        Command="{Binding SaveCommand}"/>
 
                             </StackPanel>
 
