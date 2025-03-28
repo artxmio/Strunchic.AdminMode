@@ -1,4 +1,5 @@
-﻿using Strunchic.AdminMode.ViewModel;
+﻿using OxyPlot;
+using Strunchic.AdminMode.ViewModel;
 using System.Windows;
 
 namespace Strunchic.AdminMode.View;
@@ -19,5 +20,10 @@ public partial class MainWindow : Window
     private void ExitButton_Click(object sender, RoutedEventArgs e)
     {
         this.Close();
+    }
+
+    private void TabControl_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        _viewModel.UserChartService.SetPlotSettings();
     }
 }

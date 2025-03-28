@@ -1,6 +1,10 @@
-﻿using Strunchic.AdminMode.Services.InsrtumentTypesManager;
+﻿using OxyPlot;
+using OxyPlot.Axes;
+using OxyPlot.Series;
+using Strunchic.AdminMode.Services.InsrtumentTypesManager;
 using Strunchic.AdminMode.Services.ItemsManager;
 using Strunchic.AdminMode.Services.OrderManager;
+using Strunchic.AdminMode.Services.UserChartService;
 using Strunchic.AdminMode.Services.UsersManager;
 using Strunchik.Model.Item;
 using Strunchik.Model.Order;
@@ -21,6 +25,7 @@ public class MainWindowViewModel : INotifyPropertyChanged
     private readonly InsrtumentTypesManager _typesManager = null!;
     private readonly OrderManager _orderManager = null!;
     private readonly ApplicationContext _context = null!;
+    private readonly UserChartService _userChartService = null!;
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -114,6 +119,11 @@ public class MainWindowViewModel : INotifyPropertyChanged
 
     public ICommand SaveCommand { get; }
 
+    public UserChartService UserChartService
+    {
+        get => _userChartService;
+    }
+
     public MainWindowViewModel()
     {
         _context = new ApplicationContext();
@@ -122,6 +132,7 @@ public class MainWindowViewModel : INotifyPropertyChanged
         _itemManager = new ItemsManager(_context);
         _typesManager = new InsrtumentTypesManager(_context);
         _orderManager = new OrderManager(_context);
+        _userChartService = new UserChartService(_context);
 
         AddUserCommand = new RelayCommand(_ => { _userManager.Add(); OnPropertyChanched(nameof(Users)); });
         DeleteUserCommand = new RelayCommand(_ => _userManager.Delete());

@@ -44,6 +44,8 @@ public class AddUserViewModel
             return;
         }
 
+        NewUser.RegistrationData = DateTime.Now;
+
         await _context.Users.AddAsync(NewUser);
         MessageBox.Show("Пользователь будет добавлен в ближайшее время.", "Внимание!");
 

@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:Strunchic.AdminMode.ViewModel"
+        xmlns:oxy="http://oxyplot.org/wpf"
+        
         mc:Ignorable="d"
         Title="Strunchic Admin Mode" 
         
@@ -54,6 +56,7 @@
                             <DataGridTextColumn Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Header="Имя" Width="0.2*"/>
                             <DataGridTextColumn Binding="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Header="Почта" Width="0.3*"/>
                             <DataGridTextColumn Binding="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Header="Пароль" Width="0.2*"/>
+                            <DataGridTextColumn Binding="{Binding RegistrationData, UpdateSourceTrigger=PropertyChanged}" Header="Дата регистрации" Width="0.2*"/>
                         </DataGrid.Columns>
 
                     </DataGrid>
@@ -75,7 +78,7 @@
                                         Margin="0 0 0 10"
                                         Height="30"
                                         Command="{Binding AddUserCommand}"/>
-                                
+
                                 <Button VerticalAlignment="Bottom" 
                                         Content="Удалить пользователя"
                                         Grid.Row="3"
@@ -142,6 +145,7 @@
                                                 Header="Описание"
                                                 Width="0.4*"/>
                             <DataGridTextColumn Binding="{Binding Price, UpdateSourceTrigger=PropertyChanged}" Header="Цена" Width="0.2*"/>
+                            <DataGridTextColumn Binding="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}" Header="Изображение" Width="0.2*"/>
                         </DataGrid.Columns>
 
                     </DataGrid>
@@ -351,6 +355,19 @@
 
                     </GroupBox>
                 </Grid>
+            </TabItem>
+            <TabItem Header="Статистика" Width="100">
+                <ScrollViewer>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <oxy:PlotView Model="{Binding UserChartService.UserPlotModel}"
+                                      Grid.Row="0"/>
+                    </Grid>
+                </ScrollViewer>
+
             </TabItem>
         </TabControl>
 

@@ -41,7 +41,7 @@ public class AddItemViewModel
 
         await _context.Items.AddAsync(NewItem);
         NewItem.TypeId = SelectedType.Id;
-        MessageBox.Show("Товар будет добавлен в ближайшее время.", "Внимание!");
+        MessageBox.Show("Товар будет добавлен в ближайшее время.\nВы можете закрыть это окно или добавть ещё один товар.", "Внимание!");
 
         _context.SaveChanges();
     }

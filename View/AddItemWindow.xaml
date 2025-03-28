@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:Strunchic.AdminMode.ViewModel"
         mc:Ignorable="d"
-        Title="AddItemWindow" Height="430" Width="500"
+        Title="AddItemWindow" Height="500" Width="500"
         
         WindowStartupLocation="CenterScreen"
         
@@ -13,6 +13,8 @@
     <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="70"/>
@@ -90,9 +92,13 @@
                   SelectedItem="{Binding SelectedType}"
                   DisplayMemberPath="Title"/>
 
+        <Button Content="Выбрать изображение" Grid.Row="5" 
+                HorizontalAlignment="Center" 
+                Click="SelectImage_Click" Margin="0,18,0,16" Width="440"/>
+
         <Button Command="{Binding AddItemCommand}" 
-            Content="OK" Grid.Row="4" Margin="20,84,260,-44"/>
-        <Button Content="Cancel" Grid.Row="4"
-            Click="Button_Click" Margin="245,84,20,-44"/>
+            Content="OK" Grid.Row="6" Margin="20,4,265,36"/>
+        <Button Content="Cancel" Grid.Row="6"
+            Click="Button_Click" Margin="245,4,20,36"/>
     </Grid>
 </Window>
