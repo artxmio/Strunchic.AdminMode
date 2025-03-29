@@ -360,11 +360,32 @@
                 <ScrollViewer>
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="600"/>
+                            <RowDefinition Height="600"/>
                         </Grid.RowDefinitions>
-                        <oxy:PlotView Model="{Binding UserChartService.UserPlotModel}"
-                                      Grid.Row="0"/>
+
+                        <StackPanel Grid.Row="0"
+                                    Margin="20">
+                            <TextBlock Text="Количество регистраций пользователей"
+                                       FontSize="30"
+                                       TextAlignment="Center"
+                                       FontWeight="Bold"
+                                       FontFamily="Arial"/>
+                            <oxy:PlotView Model="{Binding UserChartService.UserPlotModel}"
+                                          Margin="10"
+                                          Height="400"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1"
+                                    Margin="20">
+                            <TextBlock Text="Количество заказов"
+                                       FontSize="30"
+                                       TextAlignment="Center"
+                                       FontWeight="Bold"
+                                       FontFamily="Arial"/>
+                            <oxy:PlotView Model="{Binding OrderChartService.OrderPlotModel}"
+                                          Margin="10"
+                                          Height="400"/>
+                        </StackPanel>
                     </Grid>
                 </ScrollViewer>
 

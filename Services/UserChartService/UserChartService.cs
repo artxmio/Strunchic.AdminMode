@@ -8,32 +8,26 @@ using System.Runtime.CompilerServices;
 
 namespace Strunchic.AdminMode.Services.UserChartService;
 
-public class UserChartService : INotifyPropertyChanged
+public class UserChartService : BaseChartService.BaseChartService, INotifyPropertyChanged
 {
-    private PlotModel _userPlotModel;
-    private ApplicationContext _context;
-
     public event PropertyChangedEventHandler? PropertyChanged;
 
     public PlotModel UserPlotModel
     {
-        get => _userPlotModel;
+        get => _model;
         set
         {
-            _userPlotModel = value;
-            OnPropertyChanched();
+            _model = value;
+            OnPropertyChanged();
         }
     }
 
-    public UserChartService(ApplicationContext context)
+    public UserChartService(ApplicationContext context) : base(new PlotModel(), context)
     {
-        _userPlotModel = new PlotModel();
-        _context = context;
-
         SetPlotSettings();
     }
 
-    public void SetPlotSettings()
+    public override void SetPlotSettings()
     {
         _context.Users.Load();
 
@@ -60,7 +54,7 @@ public class UserChartService : INotifyPropertyChanged
             Position = AxisPosition.Bottom,
             StringFormat = "dd.MM.yyyy",
             Title = "Дата",
-            IntervalType = DateTimeIntervalType.Auto,
+            IntervalType = DateTimeIntervalType.Days,
             MajorGridlineStyle = LineStyle.Solid,
             MinorGridlineStyle = LineStyle.Dot,
             MajorStep = 5
@@ -91,17 +85,11 @@ public class UserChartService : INotifyPropertyChanged
 
         UserPlotModel.Series.Add(series);
 
-        OnPropertyChanched(nameof(UserPlotModel));
+        OnPropertyChanged(nameof(UserPlotModel));
     }
-    private void OnPropertyChanched([CallerMemberName] string property = "")
+
+    private void OnPropertyChanged([CallerMemberName] string property = "")
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
     }
-}
-
-
-public class CountUserByDate
-{
-    public int UserCount { get; set; } = 0;
-    public DateTime Date { get; set; } = DateTime.Now;
 }
