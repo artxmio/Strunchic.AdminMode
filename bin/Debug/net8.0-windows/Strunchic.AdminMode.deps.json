@@ -12,6 +12,7 @@
           "OxyPlot.Core": "2.2.0",
           "OxyPlot.Wpf": "2.2.0",
           "Strunchik": "1.0.0",
+          "System.Drawing.Common": "9.0.3",
           "Microsoft.Web.WebView2.Core": "1.0.3171.0",
           "Microsoft.Web.WebView2.WinForms": "1.0.3171.0",
           "Microsoft.Web.WebView2.Wpf": "1.0.3171.0"
@@ -671,6 +672,22 @@
           }
         }
       },
+      "Microsoft.Win32.SystemEvents/9.0.3": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Win32.SystemEvents.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.325.11113"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net8.0/Microsoft.Win32.SystemEvents.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.325.11113"
+          }
+        }
+      },
       "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {
         "runtime": {
           "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
@@ -995,6 +1012,21 @@
           "lib/net8.0/System.Diagnostics.DiagnosticSource.dll": {
             "assemblyVersion": "9.0.0.0",
             "fileVersion": "9.0.325.11113"
+          }
+        }
+      },
+      "System.Drawing.Common/9.0.3": {
+        "dependencies": {
+          "Microsoft.Win32.SystemEvents": "9.0.3"
+        },
+        "runtime": {
+          "lib/net8.0/System.Drawing.Common.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.325.11202"
+          },
+          "lib/net8.0/System.Private.Windows.Core.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.325.11202"
           }
         }
       },
@@ -1386,6 +1418,13 @@
       "path": "microsoft.web.webview2/1.0.3171-prerelease",
       "hashPath": "microsoft.web.webview2.1.0.3171-prerelease.nupkg.sha512"
     },
+    "Microsoft.Win32.SystemEvents/9.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Z0hIB2oeNqPOO0MYD0wkLpEe0LangoF3BSdMLLF5wft/rndYoXhLQvWni1OxymlWj+1adswAps2ZlrPmD9ZhBg==",
+      "path": "microsoft.win32.systemevents/9.0.3",
+      "hashPath": "microsoft.win32.systemevents.9.0.3.nupkg.sha512"
+    },
     "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {
       "type": "package",
       "serviceable": true,
@@ -1532,6 +1571,13 @@
       "sha512": "sha512-cBA+28xDW33tSiGht/H8xvr8lnaCrgJ7EdO348AfSGsX4PPJUOULKxny/cc9DVNGExaCrtqagsnm5M2mkWIZ+g==",
       "path": "system.diagnostics.diagnosticsource/9.0.3",
       "hashPath": "system.diagnostics.diagnosticsource.9.0.3.nupkg.sha512"
+    },
+    "System.Drawing.Common/9.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yDxzWfZGvOtk8zk5apWXP/tmro1Nghn7/4bWS5np5CtwIfiVCC74qCc1qvIsnywvXKzVqIbKXRk09wts+xGfeg==",
+      "path": "system.drawing.common/9.0.3",
+      "hashPath": "system.drawing.common.9.0.3.nupkg.sha512"
     },
     "System.Formats.Asn1/8.0.1": {
       "type": "package",

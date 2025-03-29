@@ -213,3 +213,7 @@ D:\C#\Strunchic.AdminMode\bin\Debug\net8.0-windows\tr\Microsoft.CodeAnalysis.Wor
 D:\C#\Strunchic.AdminMode\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\C#\Strunchic.AdminMode\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\C#\Strunchic.AdminMode\bin\Debug\net8.0-windows\Resources\Images\ItemImages\default.jpg
+D:\C#\Strunchic.AdminMode\bin\Debug\net8.0-windows\Microsoft.Win32.SystemEvents.dll
+D:\C#\Strunchic.AdminMode\bin\Debug\net8.0-windows\System.Drawing.Common.dll
+D:\C#\Strunchic.AdminMode\bin\Debug\net8.0-windows\System.Private.Windows.Core.dll
+D:\C#\Strunchic.AdminMode\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\Microsoft.Win32.SystemEvents.dll

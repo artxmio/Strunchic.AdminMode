@@ -1,6 +1,7 @@
 ﻿using Strunchic.AdminMode.ViewModel;
 using System.IO;
 using System.Windows;
+using System.Drawing;
 
 namespace Strunchic.AdminMode.View;
 
@@ -29,17 +30,31 @@ public partial class AddItemWindow : Window
         {
             string sourceFilePath = dialog.FileName;
 
+            using (Image image = Image.FromFile(sourceFilePath))
+            {
+                int width = image.Width;
+                int height = image.Height;
+
+                if (width != height)
+                {
+                    MessageBox.Show("Высота и ширина изображения должны быть одинаковы.", "Внимание!");
+                    return;
+                }
+            }
+
             string destinationFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources/Images/ItemImages");
             Directory.CreateDirectory(destinationFolder);
 
             string destinationFilePath = Path.Combine("Resources/Images/ItemImages/", Path.GetFileName(sourceFilePath));
 
             File.Copy(sourceFilePath, destinationFilePath, overwrite: true);
-           
+
             if (_viewModel != null)
             {
                 _viewModel.NewItem.ImagePath = destinationFilePath;
             }
+
+            MessageBox.Show("Изображение было добавлено", "Внимание!");
         }
     }
 

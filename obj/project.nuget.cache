@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Mh7Zobjfmb4=",
+  "dgSpecHash": "8417ue/sLdo=",
   "success": true,
   "projectFilePath": "D:\\C#\\Strunchic.AdminMode\\Strunchic.AdminMode.csproj",
   "expectedPackageFiles": [
@@ -43,6 +43,7 @@
     "C:\\Users\\AdminX\\.nuget\\packages\\microsoft.extensions.options\\9.0.3\\microsoft.extensions.options.9.0.3.nupkg.sha512",
     "C:\\Users\\AdminX\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.0-preview.2.25163.2\\microsoft.extensions.primitives.10.0.0-preview.2.25163.2.nupkg.sha512",
     "C:\\Users\\AdminX\\.nuget\\packages\\microsoft.web.webview2\\1.0.3171-prerelease\\microsoft.web.webview2.1.0.3171-prerelease.nupkg.sha512",
+    "C:\\Users\\AdminX\\.nuget\\packages\\microsoft.win32.systemevents\\9.0.3\\microsoft.win32.systemevents.9.0.3.nupkg.sha512",
     "C:\\Users\\AdminX\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
     "C:\\Users\\AdminX\\.nuget\\packages\\mimekit\\4.11.0\\mimekit.4.11.0.nupkg.sha512",
     "C:\\Users\\AdminX\\.nuget\\packages\\mono.texttemplating\\3.0.0\\mono.texttemplating.3.0.0.nupkg.sha512",
@@ -64,6 +65,7 @@
     "C:\\Users\\AdminX\\.nuget\\packages\\system.composition.runtime\\7.0.0\\system.composition.runtime.7.0.0.nupkg.sha512",
     "C:\\Users\\AdminX\\.nuget\\packages\\system.composition.typedparts\\7.0.0\\system.composition.typedparts.7.0.0.nupkg.sha512",
     "C:\\Users\\AdminX\\.nuget\\packages\\system.diagnostics.diagnosticsource\\9.0.3\\system.diagnostics.diagnosticsource.9.0.3.nupkg.sha512",
+    "C:\\Users\\AdminX\\.nuget\\packages\\system.drawing.common\\9.0.3\\system.drawing.common.9.0.3.nupkg.sha512",
     "C:\\Users\\AdminX\\.nuget\\packages\\system.formats.asn1\\8.0.1\\system.formats.asn1.8.0.1.nupkg.sha512",
     "C:\\Users\\AdminX\\.nuget\\packages\\system.io.pipelines\\10.0.0-preview.2.25163.2\\system.io.pipelines.10.0.0-preview.2.25163.2.nupkg.sha512",
     "C:\\Users\\AdminX\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",

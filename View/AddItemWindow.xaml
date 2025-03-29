@@ -90,11 +90,18 @@
                   Margin="20,28,20,11" 
                   ItemsSource="{Binding Types}"
                   SelectedItem="{Binding SelectedType}"
-                  DisplayMemberPath="Title"/>
+                  DisplayMemberPath="Title"
+                  FontSize="15"/>
 
         <Button Content="Выбрать изображение" Grid.Row="5" 
                 HorizontalAlignment="Center" 
-                Click="SelectImage_Click" Margin="0,18,0,16" Width="440"/>
+                Click="SelectImage_Click" Margin="0,18,0,16" Width="440">
+            <Button.ToolTip>
+                Выберите изображение из вашего устройства
+                Размер вашего изображения должен быть 300x300 пикселей
+                Формат изображения .png или .jpg
+            </Button.ToolTip>
+        </Button>
 
         <Button Command="{Binding AddItemCommand}" 
             Content="OK" Grid.Row="6" Margin="20,4,265,36"/>
