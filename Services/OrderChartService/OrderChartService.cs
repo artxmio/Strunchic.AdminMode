@@ -52,7 +52,6 @@ public class OrderChartService : BaseChartService.BaseChartService, INotifyPrope
             return;
         }
 
-        //Ось X с датами
         OrderPlotModel.Axes.Add(new DateTimeAxis
         {
             Position = AxisPosition.Bottom,
@@ -63,11 +62,10 @@ public class OrderChartService : BaseChartService.BaseChartService, INotifyPrope
             MinorGridlineStyle = LineStyle.Dot,
             MajorStep = 7,
             Angle = 45,
-            Minimum = DateTimeAxis.ToDouble(orderCountByDate.Min(x => x.Date)),
-            Maximum = DateTimeAxis.ToDouble(orderCountByDate.Max(x => x.Date))
+            Minimum = DateTimeAxis.ToDouble(orderCountByDate.First().Date),
+            Maximum = DateTimeAxis.ToDouble(orderCountByDate.Last().Date)
         });
 
-        //Ось Y с количеством заказов
         OrderPlotModel.Axes.Add(new LinearAxis
         {
             Position = AxisPosition.Left,
@@ -75,8 +73,10 @@ public class OrderChartService : BaseChartService.BaseChartService, INotifyPrope
             MajorGridlineStyle = LineStyle.Solid,
             MinorGridlineStyle = LineStyle.Dot,
             StringFormat = "0",
+            Minimum = 0,
             MajorStep = 1
         });
+
 
         // Данные для графика
         var series = new LineSeries

@@ -2,12 +2,14 @@
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
+using Strunchic.AdminMode.Services.CartItemsCartService;
 using Strunchic.AdminMode.Services.InsrtumentTypesManager;
 using Strunchic.AdminMode.Services.ItemsManager;
 using Strunchic.AdminMode.Services.OrderChartService;
 using Strunchic.AdminMode.Services.OrderManager;
 using Strunchic.AdminMode.Services.UserChartService;
 using Strunchic.AdminMode.Services.UsersManager;
+using Strunchik.Model.CartItem;
 using Strunchik.Model.Item;
 using Strunchik.Model.Order;
 using Strunchik.Model.User;
@@ -30,6 +32,7 @@ public class MainWindowViewModel : INotifyPropertyChanged
 
     private readonly UserChartService _userChartService = null!;
     private readonly OrderChartService _orderChartService = null!;
+    private readonly CartItemsCartService _cartItemchartService = null!;
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -131,6 +134,10 @@ public class MainWindowViewModel : INotifyPropertyChanged
     {
         get => _orderChartService;
     }
+    public CartItemsCartService CartItemsCartService
+    {
+        get => _cartItemchartService;
+    }
 
     public MainWindowViewModel()
     {
@@ -143,6 +150,7 @@ public class MainWindowViewModel : INotifyPropertyChanged
 
         _userChartService = new UserChartService(_context);
         _orderChartService = new OrderChartService(_context);
+        _cartItemchartService = new CartItemsCartService(_context);
 
         AddUserCommand = new RelayCommand(_ => { _userManager.Add(); OnPropertyChanched(nameof(Users)); });
         DeleteUserCommand = new RelayCommand(_ => _userManager.Delete());

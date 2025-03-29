@@ -359,13 +359,7 @@
             <TabItem Header="Статистика" Width="100">
                 <ScrollViewer>
                     <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="600"/>
-                            <RowDefinition Height="600"/>
-                        </Grid.RowDefinitions>
-
-                        <StackPanel Grid.Row="0"
-                                    Margin="20">
+                        <StackPanel Margin="20">
                             <TextBlock Text="Количество регистраций пользователей"
                                        FontSize="30"
                                        TextAlignment="Center"
@@ -374,15 +368,21 @@
                             <oxy:PlotView Model="{Binding UserChartService.UserPlotModel}"
                                           Margin="10"
                                           Height="400"/>
-                        </StackPanel>
-                        <StackPanel Grid.Row="1"
-                                    Margin="20">
                             <TextBlock Text="Количество заказов"
                                        FontSize="30"
                                        TextAlignment="Center"
                                        FontWeight="Bold"
                                        FontFamily="Arial"/>
                             <oxy:PlotView Model="{Binding OrderChartService.OrderPlotModel}"
+                                          Margin="10"
+                                          Height="400"/>
+
+                            <TextBlock Text="Популярность товаров"
+                                       FontSize="30"
+                                       TextAlignment="Center"
+                                       FontWeight="Bold"
+                                       FontFamily="Arial"/>
+                            <oxy:PlotView Model="{Binding CartItemsCartService.CartItemsPlotModel}"
                                           Margin="10"
                                           Height="400"/>
                         </StackPanel>
