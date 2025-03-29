@@ -1,4 +1,5 @@
-﻿using Strunchik.Model.Item;
+﻿using Microsoft.EntityFrameworkCore;
+using Strunchik.Model.Item;
 using Strunchik.ViewModel.ApplicationContext;
 using Strunchik.ViewModel.Commands;
 using System.Windows;
@@ -28,6 +29,12 @@ public class AddTypeViewModel
         if (string.IsNullOrEmpty(NewType.Title))
         {
             MessageBox.Show("Заполните все поля.", "Внимание!");
+            return;
+        }
+
+        if (await _context.InstrumentTypes.AnyAsync(type => type.Title == NewType.Title))
+        {
+            MessageBox.Show("Такой тип уже существует, пожалуйста введите другое название!", "Внимание!");
             return;
         }
 

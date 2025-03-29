@@ -1,4 +1,5 @@
-﻿using Strunchik.Model.User;
+﻿using Microsoft.EntityFrameworkCore;
+using Strunchik.Model.User;
 using Strunchik.ViewModel.ApplicationContext;
 using Strunchik.ViewModel.Commands;
 using System.Text.RegularExpressions;
@@ -41,6 +42,12 @@ public class AddUserViewModel
         if (!isValid)
         {
             MessageBox.Show("Корректно заполните все поля.", "Внимание!");
+            return;
+        }
+
+        if (await _context.Users.AnyAsync(user => user.Email == NewUser.Email))
+        {
+            MessageBox.Show("Такой пользователь уже существует, пожалуйста, используйте другую почту!", "Внимание!");
             return;
         }
 
