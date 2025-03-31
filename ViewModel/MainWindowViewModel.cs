@@ -1,15 +1,10 @@
-﻿using MimeKit.Cryptography;
-using OxyPlot;
-using OxyPlot.Axes;
-using OxyPlot.Series;
+﻿using Strunchic.AdminMode.Common;
 using Strunchic.AdminMode.Services.CartItemsCartService;
 using Strunchic.AdminMode.Services.InsrtumentTypesManager;
 using Strunchic.AdminMode.Services.ItemsManager;
-using Strunchic.AdminMode.Services.OrderChartService;
 using Strunchic.AdminMode.Services.OrderManager;
 using Strunchic.AdminMode.Services.UserChartService;
 using Strunchic.AdminMode.Services.UsersManager;
-using Strunchik.Model.CartItem;
 using Strunchik.Model.Item;
 using Strunchik.Model.Order;
 using Strunchik.Model.User;
@@ -31,9 +26,9 @@ public class MainWindowViewModel : INotifyPropertyChanged
     private readonly ApplicationContext _context = null!;
 
     private readonly UserChartService _userChartService = null!;
-    private readonly OrderChartService _orderChartService = null!;
     private readonly CartItemsCartService _cartItemchartService = null!;
 
+    private readonly GeneralInfo _generalInfo = null!;
     public event PropertyChangedEventHandler? PropertyChanged;
 
     public UserModel SelectedUser
@@ -130,14 +125,12 @@ public class MainWindowViewModel : INotifyPropertyChanged
     {
         get => _userChartService;
     }
-    public OrderChartService OrderChartService
-    {
-        get => _orderChartService;
-    }
     public CartItemsCartService CartItemsCartService
     {
         get => _cartItemchartService;
     }
+    
+    public GeneralInfo GeneralInfo => _generalInfo;
 
     public MainWindowViewModel()
     {
@@ -149,8 +142,9 @@ public class MainWindowViewModel : INotifyPropertyChanged
         _orderManager = new OrderManager(_context);
 
         _userChartService = new UserChartService(_context);
-        _orderChartService = new OrderChartService(_context);
         _cartItemchartService = new CartItemsCartService(_context);
+
+        _generalInfo = new GeneralInfo(_context);
 
         AddUserCommand = new RelayCommand(_ => { _userManager.Add(); OnPropertyChanched(nameof(Users)); });
         DeleteUserCommand = new RelayCommand(_ => _userManager.Delete());

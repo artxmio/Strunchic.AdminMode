@@ -32,7 +32,7 @@ public class CartItemsCartService : BaseChartService.BaseChartService, INotifyPr
         _context.CartItems.Load();
         _context.Items.Load();
 
-        var itemsCountsByTitle = _context.CartItems
+        var itemsCountsByTitle = _context.CartItems.Local
             .GroupBy(order => order.Item.Title)
             .Select(g => new CountItemsInOrders
             {
@@ -41,27 +41,6 @@ public class CartItemsCartService : BaseChartService.BaseChartService, INotifyPr
             })
             .OrderBy(x => x.Title)
             .ToList();
-
-        if (itemsCountsByTitle.Count == 0)
-        {
-            if (CartItemsPlotModel != null)
-            {
-                CartItemsPlotModel.Axes.Clear();
-                CartItemsPlotModel.Series.Clear();
-                OnPropertyChanged(nameof(CartItemsPlotModel));
-            }
-            return;
-        }
-
-        if (CartItemsPlotModel == null)
-        {
-            CartItemsPlotModel = new PlotModel { Title = "Популярность товаров" };
-        }
-        else
-        {
-            CartItemsPlotModel.Axes.Clear();
-            CartItemsPlotModel.Series.Clear();
-        }
 
         var categoryAxis = new CategoryAxis
         {
@@ -105,8 +84,8 @@ public class CartItemsCartService : BaseChartService.BaseChartService, INotifyPr
         }
 
         CartItemsPlotModel.Series.Add(series);
+        CartItemsPlotModel.InvalidatePlot(true);
         OnPropertyChanged(nameof(CartItemsPlotModel));
-
     }
 
     private void OnPropertyChanged([CallerMemberName] string property = "")
